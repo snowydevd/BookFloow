@@ -5,7 +5,7 @@
     "autor": "Miguel de Cervantes",
     "paginas": 1056,
     "precio": 34.99,
-    "portada": "/images/don-quijote.jpg",
+    "portada": "/bookImages/don-quijote.jpg",
     "descripcion": "La historia de un hidalgo que enloquece por la lectura de novelas de caballería."
   },
   {
@@ -14,7 +14,7 @@
     "autor": "Harper Lee",
     "paginas": 281,
     "precio": 14.99,
-    "portada": "/images/matar-a-un-ruisenor.jpg",
+    "portada": "/bookImages/matar-a-un-ruisenor.jpg",
     "descripcion": "Un clásico sobre la lucha contra la injusticia racial en el sur de Estados Unidos."
   },
   {
@@ -23,7 +23,7 @@
     "autor": "Gabriel García Márquez",
     "paginas": 417,
     "precio": 19.99,
-    "portada": "/images/cien-anos-de-soledad.jpg",
+    "portada": "/bookImages/cien-anos-de-soledad.jpg",
     "descripcion": "Una novela épica sobre la historia de la familia Buendía en el pueblo ficticio de Macondo."
   },
   {
@@ -32,7 +32,7 @@
     "autor": "George Orwell",
     "paginas": 328,
     "precio": 15.99,
-    "portada": "/images/1984.jpg",
+    "portada": "/bookImages/1984.jpg",
     "descripcion": "Una distopía sobre un futuro totalitario donde el Gran Hermano vigila cada movimiento."
   },
   {
@@ -41,7 +41,7 @@
     "autor": "Patrick Rothfuss",
     "paginas": 662,
     "precio": 29.99,
-    "portada": "/images/el-nombre-del-viento.jpg",
+    "portada": "/bookImages/el-nombre-del-viento.jpg",
     "descripcion": "La historia de Kvothe, un héroe legendario que cuenta su vida desde sus humildes comienzos."
   },
   {
@@ -50,7 +50,7 @@
     "autor": "Homero",
     "paginas": 541,
     "precio": 18.99,
-    "portada": "/images/la-odisea.jpg",
+    "portada": "/bookImages/la-odisea.jpg",
     "descripcion": "La épica historia del regreso de Odiseo a su hogar después de la guerra de Troya."
   },
   {
@@ -59,7 +59,7 @@
     "autor": "Albert Camus",
     "paginas": 123,
     "precio": 14.99,
-    "portada": "/images/el-extranjero.jpg",
+    "portada": "/bookImages/el-extranjero.jpg",
     "descripcion": "Un hombre indiferente comete un asesinato y enfrenta un juicio que cuestiona la moralidad y el sentido de la vida."
   },
   {
@@ -68,7 +68,7 @@
     "autor": "Fiódor Dostoyevski",
     "paginas": 796,
     "precio": 22.99,
-    "portada": "/images/los-hermanos-karamazov.jpg",
+    "portada": "/bookImages/los-hermanos-karamazov.jpg",
     "descripcion": "Una compleja historia familiar que explora temas de fe, duda y moralidad."
   },
   {
@@ -77,7 +77,7 @@
     "autor": "Franz Kafka",
     "paginas": 201,
     "precio": 13.99,
-    "portada": "/images/la-metamorfosis.jpg",
+    "portada": "/bookImages/la-metamorfosis.jpg",
     "descripcion": "Un hombre se despierta un día convertido en un insecto gigante y enfrenta la alienación de su familia."
   },
   {
@@ -86,7 +86,7 @@
     "autor": "Oscar Wilde",
     "paginas": 254,
     "precio": 13.99,
-    "portada": "/images/el-retrato-de-dorian-gray.jpg",
+    "portada": "/bookImages/el-retrato-de-dorian-gray.jpg",
     "descripcion": "La historia de un joven que desea mantenerse eternamente joven mientras su retrato envejece en su lugar."
   },
   {
@@ -95,7 +95,7 @@
     "autor": "Charlotte Brontë",
     "paginas": 500,
     "precio": 16.99,
-    "portada": "/images/jane-eyre.jpg",
+    "portada": "/bookImages/jane-eyre.jpg",
     "descripcion": "La vida y luchas de una joven huérfana en la Inglaterra victoriana."
   },
   {
@@ -104,7 +104,7 @@
     "autor": "Emily Brontë",
     "paginas": 348,
     "precio": 15.99,
-    "portada": "/images/cumbres-borrascosas.jpg",
+    "portada": "/bookImages/cumbres-borrascosas.jpg",
     "descripcion": "Una oscura historia de amor, venganza y obsesión en las frías tierras de Yorkshire."
   },
   {
@@ -113,7 +113,7 @@
     "autor": "Alexandre Dumas",
     "paginas": 1276,
     "precio": 24.99,
-    "portada": "/images/el-conde-de-montecristo.jpg",
+    "portada": "/bookImages/el-conde-de-montecristo.jpg",
     "descripcion": "Una historia de venganza y redención que sigue la vida de Edmond Dantès."
   },
   {
@@ -122,7 +122,7 @@
     "autor": "Fiódor Dostoyevski",
     "paginas": 671,
     "precio": 19.99,
-    "portada": "/images/crimen-y-castigo.jpg",
+    "portada": "/bookImages/crimen-y-castigo.jpg",
     "descripcion": "La historia de un joven estudiante que comete un asesinato y debe enfrentarse a las consecuencias morales."
   },
   {
@@ -131,7 +131,7 @@
     "autor": "Dante Alighieri",
     "paginas": 712,
     "precio": 21.99,
-    "portada": "/images/la-divina-comedia.jpg",
+    "portada": "/bookImages/la-divina-comedia.jpg",
     "descripcion": "Un viaje alegórico a través del Infierno, el Purgatorio y el Paraíso."
   },
   {
@@ -140,7 +140,7 @@
     "autor": "F. Scott Fitzgerald",
     "paginas": 180,
     "precio": 12.99,
-    "portada": "/images/el-gran-gatsby.jpg",
+    "portada": "/bookImages/el-gran-gatsby.jpg",
     "descripcion": "La historia del enigmático millonario Jay Gatsby y su obsesión por Daisy Buchanan en los locos años veinte."
   },
   {
@@ -149,7 +149,7 @@
     "autor": "H.G. Wells",
     "paginas": 287,
     "precio": 14.99,
-    "portada": "/images/la-guerra-de-los-mundos.jpg",
+    "portada": "/bookImages/la-guerra-de-los-mundos.jpg",
     "descripcion": "La invasión de la Tierra por extraterrestres y la lucha de la humanidad por sobrevivir."
   },
   {
@@ -158,7 +158,7 @@
     "autor": "Robert Louis Stevenson",
     "paginas": 311,
     "precio": 15.99,
-    "portada": "/images/la-isla-del-tesoro.jpg",
+    "portada": "/bookImages/la-isla-del-tesoro.jpg",
     "descripcion": "La aventura de un joven en busca de un tesoro escondido en una isla remota."
   },
   {
@@ -167,7 +167,7 @@
     "autor": "J.R.R. Tolkien",
     "paginas": 1178,
     "precio": 39.99,
-    "portada": "/images/el-senor-de-los-anillos.jpg",
+    "portada": "/bookImages/el-senor-de-los-anillos.jpg",
     "descripcion": "La épica historia de la lucha contra el mal en la Tierra Media."
   },
   {
@@ -176,7 +176,7 @@
     "autor": "Jane Austen",
     "paginas": 432,
     "precio": 16.99,
-    "portada": "/images/orgullo-y-prejuicio.jpg",
+    "portada": "/bookImages/orgullo-y-prejuicio.jpg",
     "descripcion": "La complicada relación entre Elizabeth Bennet y el señor Darcy en la Inglaterra del siglo XIX."
   },
   {
@@ -185,7 +185,7 @@
     "autor": "Arthur Conan Doyle",
     "paginas": 307,
     "precio": 13.99,
-    "portada": "/images/las-aventuras-de-sherlock-holmes.jpg",
+    "portada": "/bookImages/las-aventuras-de-sherlock-holmes.jpg",
     "descripcion": "Una colección de relatos sobre las investigaciones del detective más famoso del mundo."
   },
   {
@@ -194,7 +194,7 @@
     "autor": "Ray Bradbury",
     "paginas": 194,
     "precio": 13.99,
-    "portada": "/images/fahrenheit-451.jpg",
+    "portada": "/bookImages/fahrenheit-451.jpg",
     "descripcion": "Una distopía donde los libros están prohibidos y los bomberos los queman para evitar el pensamiento libre."
   },
   {
@@ -203,7 +203,7 @@
     "autor": "J.D. Salinger",
     "paginas": 214,
     "precio": 14.99,
-    "portada": "/images/el-guardian-entre-el-centeno.jpg",
+    "portada": "/bookImages/el-guardian-entre-el-centeno.jpg",
     "descripcion": "La historia de Holden Caulfield, un adolescente rebelde que deambula por Nueva York tras ser expulsado del colegio."
   },
   {
@@ -212,7 +212,7 @@
     "autor": "Victor Hugo",
     "paginas": 1488,
     "precio": 29.99,
-    "portada": "/images/los-miserables.jpg",
+    "portada": "/bookImages/los-miserables.jpg",
     "descripcion": "La historia de Jean Valjean, un exconvicto en busca de redención en la Francia del siglo XIX."
   },
   {
@@ -221,7 +221,7 @@
     "autor": "Dan Brown",
     "paginas": 454,
     "precio": 18.99,
-    "portada": "/images/el-codigo-da-vinci.jpg",
+    "portada": "/bookImages/el-codigo-da-vinci.jpg",
     "descripcion": "Un thriller que sigue a Robert Langdon mientras descifra misterios ocultos en obras de arte famosas."
   },
   {
@@ -230,7 +230,7 @@
     "autor": "Herman Melville",
     "paginas": 585,
     "precio": 17.99,
-    "portada": "/images/moby-dick.jpg",
+    "portada": "/bookImages/moby-dick.jpg",
     "descripcion": "La historia de la obsesiva caza del gran cachalote blanco, Moby Dick, por el capitán Ahab."
   },
   {
@@ -239,7 +239,7 @@
     "autor": "Antoine de Saint-Exupéry",
     "paginas": 96,
     "precio": 10.99,
-    "portada": "/images/el-principito.jpg",
+    "portada": "/bookImages/el-principito.jpg",
     "descripcion": "Un cuento poético sobre un joven príncipe que explora planetas y descubre la esencia de la vida."
   },
   {
@@ -248,7 +248,7 @@
     "autor": "Jorge Luis Borges",
     "paginas": 174,
     "precio": 14.99,
-    "portada": "/images/el-aleph.jpg",
+    "portada": "/bookImages/el-aleph.jpg",
     "descripcion": "Una colección de cuentos que exploran temas filosóficos y la naturaleza de la realidad."
   },
   {
@@ -257,7 +257,7 @@
     "autor": "J.R.R. Tolkien",
     "paginas": 310,
     "precio": 14.99,
-    "portada": "/images/el-hobbit.jpg",
+    "portada": "/bookImages/el-hobbit.jpg",
     "descripcion": "La aventura de Bilbo Bolsón, un hobbit que se embarca en una peligrosa misión para recuperar un tesoro."
   },
   {
@@ -266,7 +266,7 @@
     "autor": "Anónimo",
     "paginas": 960,
     "precio": 23.99,
-    "portada": "/images/las-mil-y-una-noches.jpg",
+    "portada": "/bookImages/las-mil-y-una-noches.jpg",
     "descripcion": "Una colección de cuentos populares del Medio Oriente que incluyen historias de amor, aventura y magia."
   },
   {
@@ -275,7 +275,7 @@
     "autor": "Fiódor Dostoyevski",
     "paginas": 667,
     "precio": 19.99,
-    "portada": "/images/el-idiota.jpg",
+    "portada": "/bookImages/el-idiota.jpg",
     "descripcion": "La historia de un hombre puro de corazón que es arrastrado por los conflictos y las tragedias de la vida."
   },
   {
@@ -284,7 +284,7 @@
     "autor": "León Tolstói",
     "paginas": 1225,
     "precio": 28.99,
-    "portada": "/images/guerra-y-paz.jpg",
+    "portada": "/bookImages/guerra-y-paz.jpg",
     "descripcion": "Una épica novela que sigue las vidas de varias familias nobles durante las guerras napoleónicas."
   },
   {
@@ -293,7 +293,7 @@
     "autor": "Julio Verne",
     "paginas": 302,
     "precio": 14.99,
-    "portada": "/images/la-vuelta-al-mundo-en-ochenta-dias.jpg",
+    "portada": "/bookImages/la-vuelta-al-mundo-en-ochenta-dias.jpg",
     "descripcion": "La increíble aventura de Phileas Fogg y su criado Passepartout en un intento por circunnavegar el mundo en 80 días."
   },
   {
@@ -302,7 +302,7 @@
     "autor": "León Tolstói",
     "paginas": 964,
     "precio": 23.99,
-    "portada": "/images/ana-karenina.jpg",
+    "portada": "/bookImages/ana-karenina.jpg",
     "descripcion": "La historia de una mujer noble que se enfrenta a las consecuencias de un amor prohibido en la Rusia imperial."
   },
   {
@@ -311,7 +311,7 @@
     "autor": "Arthur Conan Doyle",
     "paginas": 256,
     "precio": 12.99,
-    "portada": "/images/el-perro-de-los-baskerville.jpg",
+    "portada": "/bookImages/el-perro-de-los-baskerville.jpg",
     "descripcion": "Un misterio en el que Sherlock Holmes investiga la leyenda de un perro fantasma que aterroriza a una familia."
   },
   {
@@ -320,7 +320,7 @@
     "autor": "Hermann Hesse",
     "paginas": 237,
     "precio": 14.99,
-    "portada": "/images/el-lobo-estepario.jpg",
+    "portada": "/bookImages/el-lobo-estepario.jpg",
     "descripcion": "La historia de un hombre que lucha por reconciliar sus instintos humanos y su naturaleza salvaje."
   },
   {
@@ -329,7 +329,7 @@
     "autor": "Vladimir Nabokov",
     "paginas": 336,
     "precio": 15.99,
-    "portada": "/images/lolita.jpg",
+    "portada": "/bookImages/lolita.jpg",
     "descripcion": "Una polémica historia de amor prohibido entre un hombre mayor y una niña."
   },
   {
@@ -338,7 +338,7 @@
     "autor": "George Orwell",
     "paginas": 112,
     "precio": 12.99,
-    "portada": "/images/rebelion-en-la-granja.jpg",
+    "portada": "/bookImages/rebelion-en-la-granja.jpg",
     "descripcion": "Una alegoría satírica sobre una granja donde los animales se rebelan contra los humanos."
   },
   {
@@ -347,7 +347,7 @@
     "autor": "Carlos Ruiz Zafón",
     "paginas": 545,
     "precio": 18.99,
-    "portada": "/images/la-sombra-del-viento.jpg",
+    "portada": "/bookImages/la-sombra-del-viento.jpg",
     "descripcion": "La historia de un joven que descubre un misterioso libro que cambiará su vida para siempre."
   },
   {
@@ -356,7 +356,7 @@
     "autor": "J.K. Rowling",
     "paginas": 309,
     "precio": 16.99,
-    "portada": "/images/harry-potter-y-la-piedra-filosofal.jpg",
+    "portada": "/bookImages/harry-potter-y-la-piedra-filosofal.jpg",
     "descripcion": "El primer libro de la famosa serie sobre un joven mago que asiste a la escuela de magia de Hogwarts."
   }
 ]

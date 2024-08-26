@@ -23,9 +23,18 @@ export default function NavBar() {
       <Link href="/" className="mr-6 flex items-center" prefetch={false}>
         {/* <MountainIcon className="h-6 w-6" />
          */}
-        <Image alt="logo de BookFloow" src={miniLogo} width={40} />
+        <Image alt="logo de BookFloow" src={miniLogo} width={200} />
       </Link>
       <div className="ml-auto flex items-center gap-2">
+        <Link href="/books" className="p-3">
+          Comprar libros
+        </Link>
+        <Link href="/books" className="p-3">
+          Mis libros
+        </Link>
+        <Link href="/books" className="p-3">
+          Mis intercambios
+        </Link>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="ghost" size="icon" className="rounded-full">
