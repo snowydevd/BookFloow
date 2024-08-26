@@ -1,15 +1,13 @@
-/**
- * v0 by Vercel.
- * @see https://v0.dev/t/evEVmhGssRe
- * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
- */
-"use client";
-
-import { useState, useMemo } from "react";
+import Image from "next/image";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import NavBar from "@/components/ux/navbar";
-export default function Home() {
+
+import ListedBooks from "./books/listedBooks";
+export default async function Home() {
+  const res = await fetch(`/api/book-data`);
+  const books = await res.json();
+
   const products = [
     {
       id: 1,
@@ -55,14 +53,15 @@ export default function Home() {
       price: 18.99,
     },
   ];
-  const [searchTerm, setSearchTerm] = useState("");
-  const filteredProducts = useMemo(() => {
-    return products.filter(
-      (product) =>
-        product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        product.description.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-  }, [searchTerm]);
+
+  // const [searchTerm, setSearchTerm] = useState("");
+  // const filteredProducts = useMemo(() => {
+  //   return products.filter(
+  //     (product) =>
+  //       product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+  //       product.description.toLowerCase().includes(searchTerm.toLowerCase())
+  //   );
+  // }, [searchTerm]);
   return (
     <main className="w-full max-w-6xl mx-auto px-4 md:px-6 py-8">
       <NavBar />
@@ -79,13 +78,14 @@ export default function Home() {
           />
         </div>
       </header>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <ListedBooks books={books} />
+      {/* <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {filteredProducts.map((product) => (
           <div
             key={product.id}
             className="bg-background rounded-lg overflow-hidden shadow-lg"
           >
-            <img
+            <Image
               src="/placeholder.svg"
               alt={product.name}
               width={400}
@@ -105,7 +105,7 @@ export default function Home() {
             </div>
           </div>
         ))}
-      </div>
+      </div> */}
     </main>
   );
 }
