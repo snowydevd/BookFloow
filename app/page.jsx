@@ -1,23 +1,21 @@
-/**
- * v0 by Vercel.
- * @see https://v0.dev/t/EKBGenPJx6z
- * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
- */
 import Link from "next/link";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
+// import { Card, CardContent } from "@/components/ui/card";
+// import { Button } from "@/components/ui/button";
+// import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+// import { Input } from "@/components/ui/input";
+// import { Textarea } from "@/components/ui/textarea";
 
 import HeroImg from "@/public/hero.png";
 import NavBar from "@/components/ux/navbar";
 import Image from "next/image";
+import LibrosPage from "./books/librosPage";
+
 export default function Component() {
   return (
-    <div className="flex flex-col min-h-[100dvh]">
+    <main className="flex flex-col min-h-[100dvh]">
       <NavBar />
-      <main className="flex-1">
+      <LibrosPage />
+      {/* <main className="flex-1">
         <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48">
           <div className="container px-4 md:px-6">
             <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
@@ -264,8 +262,8 @@ export default function Component() {
             Privacy Policy
           </Link>
         </nav>
-      </footer>
-    </div>
+      </footer> */}
+    </main>
   );
 }
 

@@ -22,8 +22,6 @@ export default async function LibrosPage() {
 
   return (
     <div className="w-full flex flex-col items-center justify-center space-y-16">
-      <NavBar />
-      <h1>Lista de Libros</h1>
       <ListedBooks books={books} />
     </div>
   );

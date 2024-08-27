@@ -30,7 +30,7 @@ export default function ListedBooks({ books }) {
   }, [searchTerm]);
 
   return (
-    <section className="flex flex-col items-center justify-center space-y-16">
+    <section className=" w-full flex flex-col items-center justify-center space-y-16 ">
       <div className="relative mt-4 w-3/4">
         <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
         <Input
@@ -42,18 +42,18 @@ export default function ListedBooks({ books }) {
         />
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12">
+      <div className="w-full flex flex-col items-center space-y-2  p-3">
         {filteredProducts.map((book) => (
-          <Link href={`/books/${book.id}`} key={book.id}>
-            <Card className=" min-w-72 overflow-hidden rounded-lg shadow-lg  min-h-28">
+          <Link href={`/books/${book.id}`} key={book.id} className="w-3/4">
+            <Card className="w-full  rounded-lg shadow-lg  ">
               <div className="relative">
-                <Image
+                {/* <Image
                   src={book.portada}
                   alt="Product Image"
                   width={200}
                   height={200}
                   className="aspect-square w-full object-cover"
-                />
+                /> */}
               </div>
               <div className="p-4">
                 <div className="flex items-center justify-between">
@@ -65,9 +65,9 @@ export default function ListedBooks({ books }) {
                       {book.autor}
                     </p>
                   </div>
-                  <Button size="sm" className="shrink-0">
-                    Add to Cart
-                  </Button>
+                  <div className="flex items-center gap-3">
+                    <p>${book.precio}</p>
+                  </div>
                 </div>
               </div>
             </Card>

@@ -3,6 +3,8 @@ import "./globals.css";
 import NavBar from "@/components/ux/navbar";
 const inter = Inter({ subsets: ["latin"] });
 
+import { CartProvider } from "./books/cartProvider";
+
 export const metadata = {
   title: "BookFloow",
   description: "Lee, intercambia y vende de nuevo",
@@ -13,7 +15,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${inter.className} antialiased dark`}>
         {/* <NavBar /> */}
-        {children}
+        <CartProvider>{children}</CartProvider>
       </body>
     </html>
   );

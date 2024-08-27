@@ -15,16 +15,21 @@ import {
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
+import Cart from "./cart/cart";
+
 import miniLogo from "@/public/mini-logo.png";
 
 export default function NavBar() {
   return (
     <header className="flex h-20 w-full shrink-0 items-center px-4 md:px-6">
-      <Link href="/" className="mr-6 flex items-center" prefetch={false}>
-        {/* <MountainIcon className="h-6 w-6" />
-         */}
-        <Image alt="logo de BookFloow" src={miniLogo} width={200} />
-      </Link>
+      <div>
+        <Link href="/" className="mr-6 flex items-center" prefetch={false}>
+          {/* <MountainIcon className="h-6 w-6" />
+           */}
+          <Image alt="logo de BookFloow" src={miniLogo} width={200} />
+        </Link>
+      </div>
+
       <div className="ml-auto flex items-center gap-2">
         <Link href="/books" className="p-3">
           Comprar libros
@@ -113,29 +118,8 @@ export default function NavBar() {
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
-        <ShoppingCartIcon />
+        <Cart />
       </div>
     </header>
-  );
-}
-
-function ShoppingCartIcon(props) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <circle cx="8" cy="21" r="1" />
-      <circle cx="19" cy="21" r="1" />
-      <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
-    </svg>
   );
 }
