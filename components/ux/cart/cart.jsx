@@ -24,6 +24,7 @@ import {
 export default function Cart() {
   const { state, dispatch } = useCart();
   const { items } = state;
+  let totalPrice = 0;
 
   const removeFromCart = (id) => {
     dispatch({ type: "REMOVE_FROM_CART", id });
@@ -32,6 +33,11 @@ export default function Cart() {
   const clearCart = () => {
     dispatch({ type: "CLEAR_CART" });
   };
+
+  for (let item of items) {
+    totalPrice += item.precio;
+    console.log(totalPrice);
+  }
 
   return (
     <Dialog>
@@ -68,12 +74,22 @@ export default function Cart() {
             ))}
           </ul>
         </article>
-        <DialogFooter>
-          <Link href="/cart">
-            <Button type="submit">Comprar</Button>
-          </Link>
-          <Button type="secondary">Vaciar carrito</Button>
-        </DialogFooter>
+
+        {items.length === 0 ? (
+          <CardContent className="w-full justify-center items-center">
+            <p className=" text-muted-foreground text-center">
+              No hay libros en el carrito aun!
+            </p>
+          </CardContent>
+        ) : (
+          <DialogFooter>
+            <p>Subtotal: ${totalPrice}</p>
+            <Link href="/cart">
+              <Button type="submit">Comprar</Button>
+            </Link>
+            <Button type="secondary">Vaciar carrito</Button>
+          </DialogFooter>
+        )}
       </DialogContent>
     </Dialog>
   );

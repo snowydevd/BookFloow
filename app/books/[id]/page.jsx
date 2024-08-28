@@ -44,7 +44,11 @@ export default async function Product({ params }) {
         </div>
         <div className="flex-1 grid gap-4">
           <h1 className="text-2xl md:text-3xl font-bold">{book.titulo}</h1>
+
           <p className="text-muted-foreground">por {book.autor}</p>
+          <h3 className="text-md text-muted-foreground">
+            Numero de paginas: {book.paginas}
+          </h3>
           <div className="text-4xl font-bold">${book.precio}</div>
           <div className="flex gap-2">
             <AddToCart items={book} />
