@@ -1,5 +1,6 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { Toaster } from "@/components/ui/sonner";
 import NavBar from "@/components/ux/navbar";
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,7 +16,10 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${inter.className} antialiased dark`}>
         {/* <NavBar /> */}
-        <CartProvider>{children}</CartProvider>
+        <CartProvider>
+          {children}
+          <Toaster />
+        </CartProvider>
       </body>
     </html>
   );
