@@ -4,6 +4,8 @@ import { Toaster } from "@/components/ui/sonner";
 import NavBar from "@/components/ux/navbar";
 const inter = Inter({ subsets: ["latin"] });
 
+import { SessionProvider } from "next-auth/react";
+
 import { CartProvider } from "./books/cartProvider";
 
 export const metadata = {

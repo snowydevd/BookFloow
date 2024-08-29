@@ -1,9 +1,4 @@
 import Link from "next/link";
-// import { Card, CardContent } from "@/components/ui/card";
-// import { Button } from "@/components/ui/button";
-// import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-// import { Input } from "@/components/ui/input";
-// import { Textarea } from "@/components/ui/textarea";
 
 import HeroImg from "@/public/hero.png";
 import NavBar from "@/components/ux/navbar";
