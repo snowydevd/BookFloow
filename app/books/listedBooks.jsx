@@ -43,36 +43,71 @@ export default function ListedBooks({ books }) {
       </div>
 
       <div className="w-full flex flex-col items-center space-y-2  p-3">
-        {filteredProducts.map((book) => (
-          <Link href={`/books/${book.id}`} key={book.id} className="w-3/4">
-            <Card className="w-full  rounded-lg shadow-lg  ">
-              <div className="relative">
-                {/* <Image
+        {!searchTerm
+          ? books.slice(0, 5).map((book) => (
+              <Link href={`/books/${book.id}`} key={book.id} className="w-3/4">
+                <Card className="w-full  rounded-lg shadow-lg  ">
+                  <div className="relative">
+                    {/* <Image
                   src={book.portada}
                   alt="Product Image"
                   width={200}
                   height={200}
                   className="aspect-square w-full object-cover"
                 /> */}
-              </div>
-              <div className="p-4">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <h3 className="text-lg font-bold max-w-32">
-                      {book.titulo}
-                    </h3>
-                    <p className="text-sm text-muted-foreground">
-                      {book.autor}
-                    </p>
                   </div>
-                  <div className="flex items-center gap-3">
-                    <p>${book.precio}</p>
+                  <div className="p-4">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <h3 className="text-lg font-bold max-w-32">
+                          {book.titulo}
+                        </h3>
+                        <p className="text-sm text-muted-foreground">
+                          {book.autor}
+                        </p>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <p>${book.precio}</p>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-            </Card>
-          </Link>
-        ))}
+                </Card>
+              </Link>
+            ))
+          : ""}
+
+        {searchTerm
+          ? filteredProducts.map((book) => (
+              <Link href={`/books/${book.id}`} key={book.id} className="w-3/4">
+                <Card className="w-full  rounded-lg shadow-lg  ">
+                  <div className="relative">
+                    {/* <Image
+                  src={book.portada}
+                  alt="Product Image"
+                  width={200}
+                  height={200}
+                  className="aspect-square w-full object-cover"
+                /> */}
+                  </div>
+                  <div className="p-4">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <h3 className="text-lg font-bold max-w-32">
+                          {book.titulo}
+                        </h3>
+                        <p className="text-sm text-muted-foreground">
+                          {book.autor}
+                        </p>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <p>${book.precio}</p>
+                      </div>
+                    </div>
+                  </div>
+                </Card>
+              </Link>
+            ))
+          : ""}
       </div>
     </section>
   );
