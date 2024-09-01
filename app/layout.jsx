@@ -1,25 +1,31 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
-import NavBar from "@/components/ux/navbar";
+import { handlers } from "./auth";
 const inter = Inter({ subsets: ["latin"] });
 
-import { SessionProvider } from "next-auth/react";
+import dynamic from "next/dynamic";
+
+// Cargar ClientProviders dinámicamente solo en el cliente
+const ClientProviders = dynamic(() => import("./ClientProviders"), {
+  ssr: false,
+});
 
 import { CartProvider } from "./books/cartProvider";
 
 export const metadata = {
   title: "BookFloow",
-  description: "Lee, intercambia y vende de nuevo",
+  description: "Lee, intercambia y lee de nuevo",
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${inter.className} antialiased dark`}>
         {/* <NavBar /> */}
+
         <Toaster />
-        <CartProvider>{children}</CartProvider>
+        <ClientProviders children={children}></ClientProviders>
       </body>
     </html>
   );

@@ -1,8 +1,8 @@
 "use server";
-
+import dynamic from "next/dynamic";
 // Usar el fetch global para el servidor
-import ListedBooks from "./listedBooks";
-import NavBar from "@/components/ux/navbar";
+
+const ListedBooks = dynamic(() => import("./listedBooks"), { ssr: false });
 
 export default async function LibrosPage() {
   let books;

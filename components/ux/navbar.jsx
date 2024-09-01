@@ -3,6 +3,9 @@
  * @see https://v0.dev/t/hVPWbALxqZI
  * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
  */
+"use client";
+// import { useSession } from "next-auth/react";
+
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -14,12 +17,12 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-
+// import NavbarDropMenu from "./handleSession/navbarDropdownMenu";
 import Cart from "./cart/cart";
 
 import miniLogo from "@/public/mini-logo.png";
 
-export default function NavBar() {
+export default async function NavBar() {
   return (
     <header className="flex h-20 w-full shrink-0 items-center px-4 md:px-6">
       <div className="flex items-center gap-3  text-sm">
@@ -37,10 +40,11 @@ export default function NavBar() {
         <Link href="/books" className="p-2">
           Mis intercambios
         </Link>
+        {/* {session.user.name} */}
       </div>
 
       <div className="ml-auto flex items-center gap-2">
-        <DropdownMenu>
+        {/* <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="ghost" size="icon" className="rounded-full">
               <Avatar className="h-8 w-8">
@@ -117,7 +121,11 @@ export default function NavBar() {
               </Link>
             </DropdownMenuItem>
           </DropdownMenuContent>
-        </DropdownMenu>
+        </DropdownMenu> */}
+        {/* <NavbarDropMenu /> */}
+        <Button>
+          <Link href="/account/signin">Login</Link>
+        </Button>
         <Cart />
       </div>
     </header>

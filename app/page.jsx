@@ -4,12 +4,17 @@ import HeroImg from "@/public/hero.png";
 import NavBar from "@/components/ux/navbar";
 import Image from "next/image";
 import LibrosPage from "./books/librosPage";
+import { useSession } from "next-auth/react";
+import { auth } from "./auth";
 
-export default function Component() {
+export default async function Component() {
+  const { data: session } = await auth();
+  console.log(session);
   return (
     <main className="flex flex-col min-h-[100dvh]">
       <NavBar />
 
+      <div>{session?.user?.name}</div>
       <LibrosPage />
     </main>
   );

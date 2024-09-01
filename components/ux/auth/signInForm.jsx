@@ -11,8 +11,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-import { signIn } from "@/app/auth";
-
+import SignInGoogle from "./oAuth/Google";
 export default function SignInForm() {
   return (
     <Card className="w-[350px]">
@@ -34,13 +33,7 @@ export default function SignInForm() {
           </Button>
         </div> */}
 
-        <form
-          action={async (formData) => {
-            "use server";
-            await signIn("credentials", formData);
-          }}
-          className="grid gap-5"
-        >
+        <form className="grid gap-5">
           <div className="grid gap-2">
             <Label htmlFor="email">Correo electrónico</Label>
             <Input id="email" type="email" placeholder="m@example.com" />
@@ -70,6 +63,7 @@ export default function SignInForm() {
             ¿Olvidaste tu contraseña?
           </a>
         </p>
+        <SignInGoogle />
       </CardFooter>
     </Card>
   );
