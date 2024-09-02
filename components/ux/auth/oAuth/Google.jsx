@@ -17,7 +17,7 @@ export default async function SignInGoogle() {
   // });
 
   const handleLogin = async () => {
-    await signIn("google", { redirect: false });
+    await signIn();
   };
 
   return <Button onClick={handleLogin}>Inicia sesion con google</Button>;

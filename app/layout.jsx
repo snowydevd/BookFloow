@@ -4,14 +4,8 @@ import { Toaster } from "@/components/ui/sonner";
 import { handlers } from "./auth";
 const inter = Inter({ subsets: ["latin"] });
 
-import dynamic from "next/dynamic";
-
-// Cargar ClientProviders dinámicamente solo en el cliente
-const ClientProviders = dynamic(() => import("./ClientProviders"), {
-  ssr: false,
-});
-
 import { CartProvider } from "./books/cartProvider";
+import Provider from "./Provider";
 
 export const metadata = {
   title: "BookFloow",
@@ -23,9 +17,11 @@ export default async function RootLayout({ children }) {
     <html lang="en">
       <body className={`${inter.className} antialiased dark`}>
         {/* <NavBar /> */}
-
-        <Toaster />
-        <ClientProviders children={children}></ClientProviders>
+        <Provider>
+          <Toaster />
+          {/* <ClientProviders children={children}></ClientProviders> */}
+          <CartProvider>{children}</CartProvider>
+        </Provider>
       </body>
     </html>
   );
