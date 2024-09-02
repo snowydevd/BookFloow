@@ -10,3 +10,5 @@ export async function GET() {
 
   return NextResponse.json(libros);
 }
+
+// https://vercel.com/guides/loading-static-file-nextjs-api-route

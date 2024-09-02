@@ -5,7 +5,7 @@ export default async function NavbarDropMenu() {
   const session = await auth();
   console.log(session);
   if (!session) {
-    return <p>Not in a session</p>;
+    return null;
   }
   return <div>{session.user.name}</div>;
 }

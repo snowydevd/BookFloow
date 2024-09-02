@@ -1,10 +1,21 @@
 "use server";
 import dynamic from "next/dynamic";
 // Usar el fetch global para el servidor
+// import { promises as fs } from "fs";
+// import path from "path";
+
+// const loadBooks = async () => {
+//   const filePath = path.join(process.cwd(), "public", "books.json");
+//   const fileContents = fs.readFileSync(filePath, "utf8");
+//   const libros = JSON.parse(fileContents);
+
+//   return libros;
+// };
 
 const ListedBooks = dynamic(() => import("./listedBooks"), { ssr: false });
 
 export default async function LibrosPage() {
+  // const books = await loadBooks();
   let books;
 
   try {
