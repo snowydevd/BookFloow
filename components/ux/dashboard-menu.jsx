@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import {
   Bell,
@@ -31,8 +32,35 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Input } from "@/components/ui/input";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { usePathname } from "next/navigation";
+import Image from "next/image";
+import Logo from "@/public/mini-logo.png";
+import NavbarDropMenu from "./userDropdown/navbarDropdownMenu";
 
-export default function DashboardMenu() {
+export default function DashboardMenu({ children }) {
+  const pathname = usePathname();
+  const dashboard = "/dashboard";
+  const links = [
+    {
+      id: 1,
+      href: `${dashboard}/orders`,
+      label: "Mis pedidos",
+      icon: <ShoppingCart className="h-4 w-4" />,
+    },
+    {
+      id: 2,
+      href: `${dashboard}/upload`,
+      label: "Mis Libros",
+
+      icon: <Package className="h-4 w-4" />,
+    },
+    {
+      id: 3,
+      href: `${dashboard}/clients`,
+      label: "Clientes",
+      icon: <Users className="h-4 w-4" />,
+    },
+  ];
   return (
     <div className="grid min-h-screen w-full md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr]">
       <div className="hidden border-r bg-muted/40 md:block">
@@ -40,36 +68,29 @@ export default function DashboardMenu() {
           <div className="flex h-14 items-center border-b px-4 lg:h-[60px] lg:px-6">
             <Link href="/" className="flex items-center gap-2 font-semibold">
               {/* <Package2 className="h-6 w-6"  */}
-              <span className="">BookFloow</span>
+              <Image alt="Logo de BookFloow" src={Logo} width={150} />
             </Link>
             <Button variant="outline" size="icon" className="ml-auto h-8 w-8">
               <Bell className="h-4 w-4" />
-              <span className="sr-only">Toggle notifications</span>
+              <span className="sr-only">Activar notificaciones</span>
             </Button>
           </div>
           <div className="flex-1">
             <nav className="grid items-start px-2 text-sm font-medium lg:px-4">
-              <Link
-                href="/dashboard/orders"
-                className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
-              >
-                <ShoppingCart className="h-4 w-4" />
-                Pedidos
-              </Link>
-              <Link
-                href="/dashboard/upload"
-                className="flex items-center gap-3 rounded-lg bg-muted px-3 py-2 text-primary transition-all hover:text-primary"
-              >
-                <Package className="h-4 w-4" />
-                Mis Libros{" "}
-              </Link>
-              <Link
-                href="#"
-                className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
-              >
-                <Users className="h-4 w-4" />
-                Cleintes
-              </Link>
+              {links.map((link) => {
+                return (
+                  <Link
+                    key={link.id}
+                    href={link.href}
+                    className={`flex items-center gap-3 rounded-lg px-3 ${
+                      pathname === link.href ? "bg-muted text-white" : ""
+                    } py-2 text-muted-foreground transition-all hover:text-primary `}
+                  >
+                    {link.icon}
+                    {link.label}
+                  </Link>
+                );
+              })}
             </nav>
           </div>
         </div>
@@ -135,42 +156,11 @@ export default function DashboardMenu() {
               </div>
             </form>
           </div>
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="secondary" size="icon" className="rounded-full">
-                <CircleUser className="h-5 w-5" />
-                <span className="sr-only">Toggle user menu</span>
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              <DropdownMenuLabel>My Account</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>Settings</DropdownMenuItem>
-              <DropdownMenuItem>Support</DropdownMenuItem>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>Logout</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+          <NavbarDropMenu />
         </header>
-        {/* <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6">
-          <div className="flex items-center">
-            <h1 className="text-lg font-semibold md:text-2xl">Inventory</h1>
-          </div>
-          <div
-            className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm"
-            x-chunk="dashboard-02-chunk-1"
-          >
-            <div className="flex flex-col items-center gap-1 text-center">
-              <h3 className="text-2xl font-bold tracking-tight">
-                You have no products
-              </h3>
-              <p className="text-sm text-muted-foreground">
-                You can start selling as soon as you add a product.
-              </p>
-              <Button className="mt-4">Add Product</Button>
-            </div>
-          </div>
-        </main> */}
+        <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6">
+          {children}
+        </main>
       </div>
     </div>
   );

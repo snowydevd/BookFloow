@@ -8,8 +8,23 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Upload, BookOpen } from "lucide-react";
 
+// FIRESTORE
+// import { db } from "@/app/firebase/config";
+// import { collection, addDoc } from "firebase/firestore";
+
 export default function UploadForm() {
+  const [titulo, setTitulo] = useState("");
+  const [autor, setAutor] = useState("");
+  const [numeroPaginas, setNumeroPaginas] = useState("");
+  const [precio, setPrecio] = useState("");
+  const [descripcion, setDescripcion] = useState("");
+  const [foto, setFoto] = useState("");
+  const [fechaPublicacion, setFechaPublicacion] = useState("");
+
+  //  TERMINAR DE IMPLEMENTAR
+
   const [coverImage, setCoverImage] = useState(null);
+  ``;
   const [previewUrl, setPreviewUrl] = useState(null);
   const [formData, setFormData] = useState({
     title: "",

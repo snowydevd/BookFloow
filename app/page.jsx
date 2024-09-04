@@ -6,7 +6,6 @@ import LibrosPage from "./books/librosPage";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import { motion } from "framer-motion";
 export default async function Page() {
-  // const { data: session } = await auth();
   return (
     <main className="flex flex-col min-h-[100dvh]">
       <NavBar />

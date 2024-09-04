@@ -42,7 +42,9 @@ export default function NavbarDropMenu() {
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuItem>Perfil</DropdownMenuItem>
-            <DropdownMenuItem>Mis pedidos</DropdownMenuItem>
+            <DropdownMenuItem>
+              <Link href="/dashboard/orders">Mis pedidos</Link>
+            </DropdownMenuItem>
             <DropdownMenuItem>Lista de deseos</DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem>

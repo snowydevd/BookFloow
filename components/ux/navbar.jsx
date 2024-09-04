@@ -26,7 +26,7 @@ import {
 import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
-import NavbarDropMenu from "./handleSession/navbarDropdownMenu";
+import NavbarDropMenu from "./userDropdown/navbarDropdownMenu";
 import Cart from "./cart/cart";
 import Logo from "@/public/mini-logo.png";
 export default function Navbar() {
@@ -34,7 +34,7 @@ export default function Navbar() {
 
   return (
     <nav className="bg-background border-b">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className=" max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <Link href="/" className="flex-shrink-0 flex items-center">
