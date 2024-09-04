@@ -2,7 +2,8 @@ import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import { FirestoreAdapter } from "@auth/firebase-adapter";
 import { cert } from "firebase-admin/app";
-const authOptions = {
+
+const authOptions = NextAuth({
   adapter: FirestoreAdapter({
     credential: cert({
       projectId: process.env.FIREBASE_PROJECT_ID,
@@ -17,5 +18,6 @@ const authOptions = {
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     }),
   ],
-};
-export default NextAuth(authOptions);
+});
+
+export { authOptions as GET, authOptions as POST };
