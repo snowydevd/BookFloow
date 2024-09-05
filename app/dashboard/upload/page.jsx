@@ -21,8 +21,7 @@ export default function Upload() {
   };
   return (
     <main>
-      <Button onClick={(e) => handler(e)}>Sube tu libro</Button>
-      {userBooks.length != 0 ? <UploadForm /> : ""}
+      <UploadForm />
     </main>
   );
 }

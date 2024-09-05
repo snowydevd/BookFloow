@@ -8,195 +8,108 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Upload, BookOpen } from "lucide-react";
 
-// FIRESTORE
+// FIRESTORE;
 // import { db } from "@/app/firebase/config";
 // import { collection, addDoc } from "firebase/firestore";
+// import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 
 export default function UploadForm() {
-  const [titulo, setTitulo] = useState("");
-  const [autor, setAutor] = useState("");
-  const [numeroPaginas, setNumeroPaginas] = useState("");
-  const [precio, setPrecio] = useState("");
-  const [descripcion, setDescripcion] = useState("");
-  const [foto, setFoto] = useState("");
-  const [fechaPublicacion, setFechaPublicacion] = useState("");
-
-  //  TERMINAR DE IMPLEMENTAR
-
-  const [coverImage, setCoverImage] = useState(null);
-  ``;
-  const [previewUrl, setPreviewUrl] = useState(null);
-  const [formData, setFormData] = useState({
-    title: "",
-    author: "",
-    pages: "",
-    publisher: "",
-    summary: "",
+  const [bookData, setBookData] = useState({
+    titulo: "",
+    autor: "",
+    paginas: "",
+    precio: "",
+    portada: null,
   });
+  const [uploading, setUploading] = useState(false);
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleFileChange = (e) => {
-    if (e.target.files && e.target.files[0]) {
-      const file = e.target.files[0];
-      setCoverImage(file);
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setPreviewUrl(reader.result);
-      };
-      reader.readAsDataURL(file);
+  const handleChange = (e) => {
+    const { name, value, files } = e.target;
+    if (name === "portada") {
+      setBookData((prevData) => ({ ...prevData, portada: files[0] }));
+    } else {
+      setBookData((prevData) => ({ ...prevData, [name]: value }));
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Aquí iría la lógica para enviar los datos a la base de datos
-    console.log("Datos del formulario:", formData);
-    console.log("Imagen de portada:", coverImage);
-  };
+    setUploading(true);
 
+    const formData = new FormData();
+    formData.append("titulo", bookData.titulo);
+    formData.append("autor", bookData.autor);
+    formData.append("paginas", bookData.paginas);
+    formData.append("precio", bookData.precio);
+    formData.append("portada", bookData.portada);
+
+    console.log(formData);
+
+    try {
+      const response = await fetch("/api/uploadbook", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (!response.ok) {
+        throw new Error("Error al subir el libro");
+      }
+
+      const data = await response.json();
+      console.log("Libro subido con éxito:", data);
+    } catch (error) {
+      console.error("Error:", error);
+    } finally {
+      setUploading(false);
+    }
+  };
   return (
-    <div className="min-h-screen bg-zinc-950 flex items-center justify-center p-4">
-      <Card className="w-full max-w-4xl mx-auto bg-zinc-900 text-zinc-100">
-        <CardHeader>
-          <CardTitle className="text-3xl font-bold text-center text-blue-500">
-            Subir Nuevo Libro
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="space-y-4">
-                <div className="space-y-2">
-                  <Label
-                    htmlFor="cover"
-                    className="text-lg font-semibold text-zinc-300"
-                  >
-                    Portada del Libro
-                  </Label>
-                  <div className="relative h-40 border-2 border-dashed border-blue-500/50 rounded-lg overflow-hidden group">
-                    <Input
-                      id="cover"
-                      type="file"
-                      accept="image/*"
-                      onChange={handleFileChange}
-                      required
-                      className="absolute inset-0 w-full h-full opacity-0 z-50 cursor-pointer"
-                    />
-                    {previewUrl ? (
-                      <img
-                        src={previewUrl}
-                        alt="Vista previa"
-                        className="w-full h-full object-cover"
-                      />
-                    ) : (
-                      <div className="flex flex-col items-center justify-center h-full text-blue-500/70 group-hover:text-blue-400 transition-colors">
-                        <Upload size={40} />
-                        <span className="mt-2 font-medium">
-                          Seleccionar imagen
-                        </span>
-                      </div>
-                    )}
-                  </div>
-                </div>
-                <div className="space-y-2">
-                  <Label
-                    htmlFor="title"
-                    className="text-lg font-semibold text-zinc-300"
-                  >
-                    Título
-                  </Label>
-                  <Input
-                    id="title"
-                    name="title"
-                    value={formData.title}
-                    onChange={handleInputChange}
-                    required
-                    className="bg-zinc-800 border-zinc-700 text-zinc-100"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label
-                    htmlFor="author"
-                    className="text-lg font-semibold text-zinc-300"
-                  >
-                    Autor
-                  </Label>
-                  <Input
-                    id="author"
-                    name="author"
-                    value={formData.author}
-                    onChange={handleInputChange}
-                    required
-                    className="bg-zinc-800 border-zinc-700 text-zinc-100"
-                  />
-                </div>
-              </div>
-              <div className="space-y-4">
-                <div className="space-y-2">
-                  <Label
-                    htmlFor="pages"
-                    className="text-lg font-semibold text-zinc-300"
-                  >
-                    Número de Páginas
-                  </Label>
-                  <Input
-                    id="pages"
-                    name="pages"
-                    type="number"
-                    value={formData.pages}
-                    onChange={handleInputChange}
-                    required
-                    className="bg-zinc-800 border-zinc-700 text-zinc-100"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label
-                    htmlFor="publisher"
-                    className="text-lg font-semibold text-zinc-300"
-                  >
-                    Editorial
-                  </Label>
-                  <Input
-                    id="publisher"
-                    name="publisher"
-                    value={formData.publisher}
-                    onChange={handleInputChange}
-                    required
-                    className="bg-zinc-800 border-zinc-700 text-zinc-100"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label
-                    htmlFor="summary"
-                    className="text-lg font-semibold text-zinc-300"
-                  >
-                    Resumen Breve
-                  </Label>
-                  <Textarea
-                    id="summary"
-                    name="summary"
-                    value={formData.summary}
-                    onChange={handleInputChange}
-                    required
-                    className="min-h-[150px] bg-zinc-800 border-zinc-700 text-zinc-100"
-                  />
-                </div>
-              </div>
-            </div>
-            <Button
-              type="submit"
-              className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105"
-            >
-              <BookOpen className="mr-2" />
-              Subir Libro
-            </Button>
-          </form>
-        </CardContent>
-      </Card>
+    <div className="min-h-screen  flex items-center justify-center p-4">
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          name="titulo"
+          placeholder="Título del libro"
+          value={bookData.titulo}
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="text"
+          name="autor"
+          placeholder="Autor"
+          value={bookData.autor}
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="number"
+          name="paginas"
+          placeholder="Número de páginas"
+          value={bookData.paginas}
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="number"
+          name="precio"
+          placeholder="Precio"
+          value={bookData.precio}
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="file"
+          name="portada"
+          accept="image/*"
+          onChange={handleChange}
+          required
+        />
+
+        <button type="submit" disabled={uploading}>
+          {uploading ? "Subiendo..." : "Subir Libro"}
+        </button>
+      </form>
     </div>
   );
 }
