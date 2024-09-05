@@ -1,3 +1,5 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -12,7 +14,17 @@ import {
 } from "@/components/ui/card";
 
 import SignInGoogle from "./oAuth/Google";
+import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
 export default function SignInForm() {
+  const { data: session, status } = useSession();
+  const router = useRouter();
+  if (status === "authenticated") {
+    router.push("/");
+  }
+  if (status === "loading") {
+    return <p>Cargando</p>;
+  }
   return (
     <Card className="w-[350px]">
       <CardHeader className="space-y-1">

@@ -6,7 +6,7 @@ import { signIn } from "next-auth/react";
 // import { useEffect } from "react";
 // import { useRouter } from "next/router";
 // import { useSession } from "next-auth/react";
-export default async function SignInGoogle() {
+export default function SignInGoogle() {
   // const router = useRouter();
   // const { data: session } = useSession();
 
@@ -17,8 +17,10 @@ export default async function SignInGoogle() {
   // });
 
   const handleLogin = async () => {
-    await signIn();
+    await signIn("google");
   };
 
-  return <Button onClick={handleLogin}>Inicia sesion con google</Button>;
+  return (
+    <Button onClick={() => handleLogin()}>Inicia sesion con google</Button>
+  );
 }

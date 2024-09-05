@@ -26,7 +26,7 @@ export default function NavbarDropMenu() {
               alt={session.user.name}
               width={40}
               height={40}
-              className="rounded-full"
+              className="rounded-full cursor-pointer"
             />
           </DropdownMenuTrigger>
           <DropdownMenuContent className="w-56" align="end" forceMount>
