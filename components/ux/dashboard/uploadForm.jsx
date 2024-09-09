@@ -5,124 +5,147 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-} from "@/components/ui/card";
-
-// import { db } from "@/app/firebase/config";
-// import { collection, addDoc } from "firebase/firestore";
-// import { set } from "date-fns";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Upload, BookOpen } from "lucide-react";
 
 export default function UploadForm() {
-  // const [bookData, setBookData] = useState({
-  //   titulo: "",
-  //   autor: "",
-  //   paginas: "",
-  //   precio: "",
-  //   portada: null,
-  // });
-  const [value, setValue] = useState();
-  const [uploading, setUploading] = useState(false);
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    try {
-      const res = await fetch("/api/uploadbook", {
-        method: "POST",
-        body: JSON.stringify({
-          name: value,
-        }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-
-      const data = await res.json();
-      console.log(data);
-    } catch (error) {
-      console.error("Error:", error);
-    }
-  };
-
   return (
-    <div className="min-h-screen flex items-center justify-center p-4">
-      <Card>
+    <div className="min-h-screen bg-zinc-950 flex items-center justify-center p-4">
+      <Card className="w-full max-w-4xl mx-auto bg-zinc-900 text-zinc-100">
         <CardHeader>
-          <CardTitle>Sube tu libro</CardTitle>
-          <CardDescription>
-            Agrega un libro a tu biblioteca para que diferentes usuarios puedan
-            comprarlo, rentarlo o intercambiarlo
-          </CardDescription>
+          <CardTitle className="text-3xl font-bold text-center text-blue-500">
+            Subir Nuevo Libro
+          </CardTitle>
         </CardHeader>
         <CardContent>
-          {/* <form className="space-y-5">
-            <div>
-              <Label>Titulo</Label>
-              <Input
-                type="text"
-                name="titulo"
-                placeholder="Título del libro"
-                value={bookData.titulo}
-                onChange={handleChange}
-                required
-              />
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="space-y-4">
+                <div className="space-y-2">
+                  <Label
+                    htmlFor="cover"
+                    className="text-lg font-semibold text-zinc-300"
+                  >
+                    Portada del Libro
+                  </Label>
+                  <div className="relative h-40 border-2 border-dashed border-blue-500/50 rounded-lg overflow-hidden group">
+                    <Input
+                      id="cover"
+                      type="file"
+                      accept="image/*"
+                      onChange={handleFileChange}
+                      required
+                      className="absolute inset-0 w-full h-full opacity-0 z-50 cursor-pointer"
+                    />
+                    {previewUrl ? (
+                      <img
+                        src={previewUrl}
+                        alt="Vista previa"
+                        className="w-full h-full object-cover"
+                      />
+                    ) : (
+                      <div className="flex flex-col items-center justify-center h-full text-blue-500/70 group-hover:text-blue-400 transition-colors">
+                        <Upload size={40} />
+                        <span className="mt-2 font-medium">
+                          Seleccionar imagen
+                        </span>
+                      </div>
+                    )}
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <Label
+                    htmlFor="title"
+                    className="text-lg font-semibold text-zinc-300"
+                  >
+                    Título
+                  </Label>
+                  <Input
+                    id="title"
+                    name="title"
+                    value={formData.title}
+                    onChange={handleInputChange}
+                    required
+                    className="bg-zinc-800 border-zinc-700 text-zinc-100"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label
+                    htmlFor="author"
+                    className="text-lg font-semibold text-zinc-300"
+                  >
+                    Autor
+                  </Label>
+                  <Input
+                    id="author"
+                    name="author"
+                    value={formData.author}
+                    onChange={handleInputChange}
+                    required
+                    className="bg-zinc-800 border-zinc-700 text-zinc-100"
+                  />
+                </div>
+              </div>
+              <div className="space-y-4">
+                <div className="space-y-2">
+                  <Label
+                    htmlFor="pages"
+                    className="text-lg font-semibold text-zinc-300"
+                  >
+                    Número de Páginas
+                  </Label>
+                  <Input
+                    id="pages"
+                    name="pages"
+                    type="number"
+                    value={formData.pages}
+                    onChange={handleInputChange}
+                    required
+                    className="bg-zinc-800 border-zinc-700 text-zinc-100"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label
+                    htmlFor="publisher"
+                    className="text-lg font-semibold text-zinc-300"
+                  >
+                    Editorial
+                  </Label>
+                  <Input
+                    id="publisher"
+                    name="publisher"
+                    value={formData.publisher}
+                    onChange={handleInputChange}
+                    required
+                    className="bg-zinc-800 border-zinc-700 text-zinc-100"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label
+                    htmlFor="summary"
+                    className="text-lg font-semibold text-zinc-300"
+                  >
+                    Resumen Breve
+                  </Label>
+                  <Textarea
+                    id="summary"
+                    name="summary"
+                    value={formData.summary}
+                    onChange={handleInputChange}
+                    required
+                    className="min-h-[150px] bg-zinc-800 border-zinc-700 text-zinc-100"
+                  />
+                </div>
+              </div>
             </div>
-            <div>
-              <Label>Autor</Label>
-              <Input
-                type="text"
-                name="autor"
-                placeholder="Autor del libro"
-                value={bookData.autor}
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <div>
-              <Label>Numero de paginas</Label>
-              <Input
-                type="number"
-                name="paginas"
-                placeholder="Numero de paginas"
-                value={bookData.paginas}
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <div>
-              <Label>Precio</Label>
-              <Input
-                type="number"
-                name="precio"
-                placeholder="Precio"
-                value={bookData.precio}
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <div>
-              <Label>Portada</Label>
-              <Input
-                type="file"
-                name="portada"
-                accept="image/*"
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <div>
-              <Button type="submit" onClick={(e) => handleSubmit(e)}>
-                Subir
-              </Button>
-            </div>
-          </form> */}
-          <Input type="text" onChange={(e) => setValue(e.target.value)} />
-          <Button onClick={(e) => handleSubmit(e)}>Subir</Button>
+            <Button
+              type="submit"
+              className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105"
+            >
+              <BookOpen className="mr-2" />
+              Subir Libro
+            </Button>
+          </form>
         </CardContent>
       </Card>
     </div>
